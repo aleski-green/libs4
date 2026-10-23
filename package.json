@@ -1,0 +1,17 @@
+{
+  "name": "@aleski-green/libs4",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pinned third-party browser libraries for Sapiens4",
+  "scripts": {
+    "build": "node build.cjs"
+  },
+  "dependencies": {
+    "jsqr": "1.4.0",
+    "qrcode": "1.5.4",
+    "tweetnacl": "1.0.3"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  }
+}
