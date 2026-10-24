@@ -41,8 +41,7 @@ installer. Sapiens4 keeps application and test source; this repo owns the pins:
   From the Sapiens4 root, run `ruby libs4/ruby/bundle.rb install`, then
   `ruby libs4/ruby/bundle.rb exec rspec`. The wrapper retains the caller's working
   directory and installs gems in `ruby/.gems/` here.
-- `python/*-requirements.txt`: CLI, remote client, relay, and combined test
-  requirements. Create a virtual environment in `python/.venv/` and install the
+- `python/*-requirements.txt`: remote client and relay requirements, also used by tests. Create a virtual environment in `python/.venv/` and install the
   relevant requirements with that interpreter. The Ruby wrapper uses this
   interpreter for tests unless `SAPIENS_PYTHON` is supplied.
 - `python/package-windows.ps1`: pinned embedded Python download, checksum

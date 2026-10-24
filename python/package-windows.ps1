@@ -18,5 +18,7 @@ if ((Get-FileHash -LiteralPath $PythonArchive -Algorithm SHA256).Hash -ne $hash)
 Expand-Archive -LiteralPath $PythonArchive -DestinationPath $TargetDirectory -Force
 [IO.File]::WriteAllText((Join-Path $TargetDirectory 'python313._pth'), "python313.zip`n.`n..`nimport site`n", [Text.UTF8Encoding]::new($false))
 $wheelPlatform = if ($Runtime -eq 'win-arm64') { 'win_arm64' } else { 'win_amd64' }
-& $BuildPython -m pip install --disable-pip-version-check --only-binary=:all: --platform $wheelPlatform --python-version 3.13 --implementation cp --abi cp313 --upgrade --target (Join-Path $TargetDirectory 'Lib/site-packages') -r (Join-Path $PSScriptRoot 'cli-requirements.txt') -r (Join-Path $PSScriptRoot 'remote-client-requirements.txt')
+$packages = Join-Path $TargetDirectory 'Lib/site-packages'
+if (Test-Path -LiteralPath $packages) { Remove-Item -LiteralPath $packages -Recurse -Force }
+& $BuildPython -m pip install --disable-pip-version-check --only-binary=:all: --platform $wheelPlatform --python-version 3.13 --implementation cp --abi cp313 --upgrade --target $packages -r (Join-Path $PSScriptRoot 'remote-client-requirements.txt')
 if ($LASTEXITCODE -ne 0) { throw 'Packaged Python dependencies failed' }
