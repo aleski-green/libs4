@@ -17,7 +17,7 @@ resolution and integrity hashes are pinned in `package-lock.json`.
 
 ## Rebuild
 
-With Node.js 20 or newer:
+With Node.js 20.9 or newer:
 
 ```sh
 npm ci --ignore-scripts
