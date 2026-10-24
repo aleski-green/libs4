@@ -2,7 +2,7 @@
   "name": "@aleski-green/libs4",
   "version": "1.0.0",
   "private": true,
-  "description": "Pinned third-party browser libraries for Sapiens4",
+  "description": "Pinned browser, test, and build dependencies for Sapiens4",
   "scripts": {
     "build": "node build.cjs"
   },
@@ -12,6 +12,10 @@
     "tweetnacl": "1.0.3"
   },
   "devDependencies": {
-    "esbuild": "0.25.12"
+    "esbuild": "0.25.12",
+    "fake-indexeddb": "6.2.5",
+    "jsdom": "26.1.0",
+    "ws": "8.22.0",
+    "sharp": "0.35.5"
   }
 }

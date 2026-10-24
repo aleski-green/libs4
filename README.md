@@ -1,6 +1,6 @@
 # libs4
 
-Pinned third-party browser libraries consumed by Sapiens4 as a Git submodule.
+Pinned third-party dependencies consumed by Sapiens4 as a Git submodule.
 The generated `web/remote-vendor.js` is checked in so runtime installations and
 release packages do not require Node.js or npm.
 
@@ -28,6 +28,31 @@ Commit dependency updates, the lockfile, regenerated bundle, and any updated
 license notices together. Then update Sapiens4's `libs4` submodule commit.
 Routine application changes should inspect this API and the build entrypoint
 instead of reading or editing the generated bundle.
+
+## Test and native dependencies
+
+Language-specific packages are separate because each ecosystem needs its own
+installer. Sapiens4 keeps application and test source; this repo owns the pins:
+
+- `package.json` / `package-lock.json`: browser libraries, DOM test packages,
+  esbuild, and sharp for icon generation. `npm ci --ignore-scripts` installs them
+  into `node_modules/` here.
+- `ruby/Gemfile` / `ruby/Gemfile.lock`: RSpec, WEBrick, and SQLite dependencies.
+  From the Sapiens4 root, run `ruby libs4/ruby/bundle.rb install`, then
+  `ruby libs4/ruby/bundle.rb exec rspec`. The wrapper retains the caller's working
+  directory and installs gems in `ruby/.gems/` here.
+- `python/*-requirements.txt`: CLI, remote client, relay, and combined test
+  requirements. Create a virtual environment in `python/.venv/` and install the
+  relevant requirements with that interpreter. The Ruby wrapper uses this
+  interpreter for tests unless `SAPIENS_PYTHON` is supplied.
+- `python/package-windows.ps1`: pinned embedded Python download, checksum
+  verification, and architecture-specific wheel installation for release builds.
+- `dotnet/WebView2.props`: the pinned WebView2 NuGet dependency, imported by
+  Sapiens4's Windows application and accessibility probe projects.
+
+Installed packages, virtual environments, and caches remain ignored. Do not
+commit them. Release builders copy the browser bundle and license notices;
+Node/Ruby test dependencies are not included in the application package.
 
 ## Licenses
 
