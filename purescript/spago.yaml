@@ -3,6 +3,9 @@ package:
   dependencies:
     - aff
     - arrays
+    - deku-core
+    - deku-dom
+    - deku-spa
     - effect
     - either
     - exceptions
@@ -18,8 +21,44 @@ package:
     - prelude
     - refs
     - strings
+    - tuples
+    - unsafe-coerce
+    - web-dom
+    - web-html
+    - hyrule
+    - console
+    - ordered-collections
+    - control
+    - datetime
+    - js-date
+    - js-timers
+    - random
 workspace:
   packageSet:
     registry: 81.10.0
+  extraPackages:
+    deku-core:
+      git: https://github.com/mikesol/purescript-deku.git
+      ref: 65d6e9d289534d13d7d235fbe7f19e6e0bd17c72
+      subdir: deku-core
+      dependencies: [aff, arrays, catenable-lists, control, debug, effect, either, fast-vect, filterable, foldable-traversable, foreign-object, free, heterogeneous, hyrule, maybe, newtype, nullable, ordered-collections, prelude, profunctor, quickcheck, record, safe-coerce, st, strings, stringutils, tldr, transformers, typelevel-prelude, tuples, unsafe-coerce, unsafe-reference, untagged-union, web-dom, web-dom-parser, web-events, web-html, web-uievents, yoga-json]
+    deku-dom:
+      git: https://github.com/mikesol/purescript-deku.git
+      ref: 65d6e9d289534d13d7d235fbe7f19e6e0bd17c72
+      subdir: deku-dom
+      dependencies: [deku-core, hyrule, web-html, web-uievents, web-pointerevents, web-touchevents]
+    deku-spa:
+      git: https://github.com/mikesol/purescript-deku.git
+      ref: 65d6e9d289534d13d7d235fbe7f19e6e0bd17c72
+      subdir: deku-spa
+      dependencies: [deku-core, deku-dom]
+    hyrule:
+      git: https://github.com/mikesol/purescript-hyrule.git
+      ref: fcbaa505faaedd06e547e33efda1275deca05448
+      dependencies: [effect, avar, js-timers, web-html, unsafe-reference, web-uievents, now]
+    tldr:
+      git: https://github.com/mikesol/purescript-tldr.git
+      ref: 7945d3f
+      dependencies: [prelude]
   buildOpts:
     output: output

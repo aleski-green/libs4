@@ -68,9 +68,16 @@ used by Sapiens4. The compiler (0.15.16) and Spago (0.93.44) are pinned npm deve
 dependencies. Use Node.js 20.9 or newer and `npm ci` so the compiler installer runs.
 Application `.purs` files remain in Sapiens4; compiler output and package downloads
 remain ignored under `purescript/`. There is no PureScript test suite: RSpec owns
-all new test cases and assertions.
+all test cases and assertions.
 
 From the Sapiens4 repository, run `node web/shell/build.cjs` to compile and bundle
 its browser modules. Bundled assets are checked in for runtime installations that
 have no Node.js toolchain. After changing the pinned PureScript libraries, run
 `node libs4/purescript/notices.cjs` to refresh their bundled license notices.
+
+Deku 0.12.2 is pinned by commit for `deku-core`, `deku-dom` and `deku-spa`,
+with compatible Hyrule and TLDR commits in `spago.lock`. The explicit dependency
+lists include upstream transitive imports needed by this compiler. `htmlparser2`
+is pinned for Deku's Pursx parser. `PURESCRIPT_DEPENDENCIES.txt` includes the
+PureScript and parser runtime notices; TLDR's license declaration is retained
+from its package.json because that pinned revision has no standalone license file.

@@ -7,6 +7,7 @@
     "build": "node build.cjs"
   },
   "dependencies": {
+    "htmlparser2": "9.1.0",
     "jsqr": "1.4.0",
     "qrcode": "1.5.4",
     "tweetnacl": "1.0.3"
