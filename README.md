@@ -60,3 +60,17 @@ are in [license/REMOTE_DEPENDENCIES.txt](license/REMOTE_DEPENDENCIES.txt).
 The build integration was extracted from Sapiens4 at `70daf72` and retains its
 [Sustainable Use License](license/LICENSE.md). That license does not replace
 the licenses of the bundled libraries.
+
+## PureScript UI dependencies
+
+`purescript/spago.yaml` and `purescript/spago.lock` pin the PureScript libraries
+used by Sapiens4. The compiler (0.15.16) and Spago (0.93.44) are pinned npm development
+dependencies. Use Node.js 20.9 or newer and `npm ci` so the compiler installer runs.
+Application `.purs` files remain in Sapiens4; compiler output and package downloads
+remain ignored under `purescript/`. There is no PureScript test suite: RSpec owns
+all new test cases and assertions.
+
+From the Sapiens4 repository, run `node web/shell/build.cjs` to compile and bundle
+its browser modules. Bundled assets are checked in for runtime installations that
+have no Node.js toolchain. After changing the pinned PureScript libraries, run
+`node libs4/purescript/notices.cjs` to refresh their bundled license notices.

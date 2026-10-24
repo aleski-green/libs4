@@ -1,0 +1,25 @@
+package:
+  name: sapiens-ui-dependencies
+  dependencies:
+    - aff
+    - arrays
+    - effect
+    - either
+    - exceptions
+    - foldable-traversable
+    - foreign
+    - foreign-object
+    - functions
+    - integers
+    - maybe
+    - nullable
+    - numbers
+    - parallel
+    - prelude
+    - refs
+    - strings
+workspace:
+  packageSet:
+    registry: 81.10.0
+  buildOpts:
+    output: output

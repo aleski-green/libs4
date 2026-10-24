@@ -6,3 +6,8 @@ node_modules/
 .cache/
 __pycache__/
 *.pyc
+
+# PureScript dependency cache and compiler output
+purescript/.spago/
+purescript/output/
+purescript/sources.json
