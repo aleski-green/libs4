@@ -1,0 +1,30 @@
+package:
+  name: sapiens-browser-bindings
+  dependencies:
+    - aff
+    - control
+    - either
+    - parallel
+    - halogen-subscriptions
+    - aff-promise
+    - argonaut
+    - arrays
+    - effect
+    - exceptions
+    - foldable-traversable
+    - foreign-object
+    - halogen
+    - integers
+    - maybe
+    - numbers
+    - ordered-collections
+    - prelude
+    - refs
+    - strings
+    - tuples
+    - web-dom
+    - web-events
+    - web-html
+workspace:
+  packageSet:
+    registry: 81.11.0
