@@ -12,3 +12,5 @@ dotnet/.sdk/
 dotnet/.packages/
 dotnet/.cli/
 haskell/.runtime/
+
+haskell/sodium/
