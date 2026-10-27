@@ -7,7 +7,7 @@ common runtime
   hs-source-dirs: ../../haskell, ../../sapiens/corpora/host/routine
   default-language: Haskell2010
   default-extensions: OverloadedStrings, ScopedTypeVariables, TupleSections
-  ghc-options: -threaded -rtsopts -O1 -Wall
+  ghc-options: -threaded -rtsopts -O1 -Wall -Werror=incomplete-patterns -Werror=incomplete-uni-patterns -Werror=missing-fields
   build-depends: base >=4.18 && <5, aeson ==2.3.2.0, bytestring, text, containers,
     directory, filepath, process, time, async, stm, scientific, vector,
     sqlite-simple, filelock, uuid, base64-bytestring, network-uri, regex-tdfa,
@@ -28,6 +28,7 @@ executable sapiens4
   import: runtime
   other-modules:
     Command,
+    Sapiens.Domain,
     Sapiens.Assets,
     Sapiens.BuildUI,
     Sapiens.Computer,
@@ -65,6 +66,7 @@ executable sapiens4
 executable sapiens-macos
   import: runtime
   other-modules:
+    Sapiens.Domain,
     Sapiens.Desktop.Mac.Application,
     Sapiens.Desktop.Mac.Browser,
     Sapiens.Desktop.Mac.Icon,
@@ -80,6 +82,7 @@ executable sapiens-macos
 executable sapiens-windows
   import: runtime
   other-modules:
+    Sapiens.Domain,
     Sapiens.Desktop.Windows.Browser,
     Sapiens.Desktop.Windows.Host,
     Sapiens.Desktop.Windows.Native,
@@ -97,6 +100,7 @@ executable sapiens-windows
 executable sapiens-windows-probe
   import: runtime
   other-modules:
+    Sapiens.Domain,
     Sapiens.Desktop.Windows.Browser,
     Sapiens.Desktop.Windows.Host,
     Sapiens.Desktop.Windows.Native,
