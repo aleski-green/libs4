@@ -65,7 +65,7 @@ executable sapiens4
 
 executable sapiens-macos
   import: runtime
-  hs-source-dirs: ../../macos, ../../sapiens
+  hs-source-dirs: ../../osspecific/macos, ../../sapiens
   other-modules:
     State.Domain,
     Application,
@@ -82,7 +82,7 @@ executable sapiens-macos
 
 executable sapiens-windows
   import: runtime
-  hs-source-dirs: ../../windows, ../../sapiens
+  hs-source-dirs: ../../osspecific/windows, ../../sapiens
   other-modules:
     State.Domain,
     Browser,
@@ -101,7 +101,7 @@ executable sapiens-windows
 
 executable sapiens-windows-probe
   import: runtime
-  hs-source-dirs: ../../spec/support, ../../windows, ../../sapiens
+  hs-source-dirs: ../../spec/support, ../../osspecific/windows, ../../sapiens
   other-modules:
     State.Domain,
     Browser,

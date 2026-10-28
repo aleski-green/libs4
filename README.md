@@ -42,7 +42,7 @@ installer. Sapiens4 keeps application and test source; this repo owns the pins:
 - `haskell/cabal.project`, `cabal.project.freeze` and `sapiens-domain.cabal`:
   application and native dependencies for GHC 9.14.1. Run `runghc Build.hs` from
   the consuming Sapiens4 checkout. Components read its responsibility-based
-  source roots (`sapiens`, `web/shell`, `macos`, `windows`, `spec/support`);
+  source roots (`sapiens`, `web/shell`, `osspecific/macos`, `osspecific/windows`, `spec/support`);
   native C bindings, vendored libsodium and dependency caches stay here.
 - `purescript/spago.yaml` / `purescript/spago.lock`: PureScript package set 81.11.0
   and Halogen 7.0.0. `purescript/src/Libs4/Browser.*` contains thin browser,
