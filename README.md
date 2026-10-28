@@ -39,6 +39,11 @@ installer. Sapiens4 keeps application and test source; this repo owns the pins:
 - `package.json` / `package-lock.json`: browser libraries, PureScript 0.15.16, Spago 1.0.5,
   esbuild, and sharp for icon generation. `npm ci` installs them
   into `node_modules/` here.
+- `haskell/cabal.project`, `cabal.project.freeze` and `sapiens-domain.cabal`:
+  application and native dependencies for GHC 9.14.1. Run `runghc Build.hs` from
+  the consuming Sapiens4 checkout. Components read its responsibility-based
+  source roots (`sapiens`, `web/shell`, `macos`, `windows`, `spec/support`);
+  native C bindings, vendored libsodium and dependency caches stay here.
 - `purescript/spago.yaml` / `purescript/spago.lock`: PureScript package set 81.11.0
   and Halogen 7.0.0. `purescript/src/Libs4/Browser.*` contains thin browser,
   storage, networking, QR, and crypto bindings. UI state, rendering, protocol
