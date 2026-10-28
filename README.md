@@ -40,9 +40,11 @@ installer. Sapiens4 keeps application and test source; this repo owns the pins:
   esbuild, and sharp for icon generation. `npm ci` installs them
   into `node_modules/` here.
 - `haskell/cabal.project`, `cabal.project.freeze` and `sapiens-domain.cabal`:
-  application and native dependencies for GHC 9.14.1. Run `runghc Build.hs` from
+  application and native dependencies for GHC 9.14.1. Run `runghc build/Build.hs` from
   the consuming Sapiens4 checkout. Components read its responsibility-based
-  source roots (`sapiens`, `web/shell`, `osspecific/macos`, `osspecific/windows`, `spec/support`);
+  lowercase source roots in `corpora`, `remote`, `build`, `environments` and
+  `spec/support`; module names match their capitalized filenames, independently
+  of directory names;
   native C bindings, vendored libsodium and dependency caches stay here.
 - `purescript/spago.yaml` / `purescript/spago.lock`: PureScript package set 81.11.0
   and Halogen 7.0.0. `purescript/src/Libs4/Browser.*` contains thin browser,
@@ -51,8 +53,8 @@ installer. Sapiens4 keeps application and test source; this repo owns the pins:
   compiles its `.purs` files with this workspace; downloaded packages stay in
   `purescript/.spago/` and caches in `.cache/`.
 - `ruby/Gemfile` / `ruby/Gemfile.lock`: RSpec, WEBrick, and SQLite dependencies.
-  From the Sapiens4 root, run `ruby libs4/ruby/bundle.rb install`, then
-  `ruby libs4/ruby/bundle.rb exec rspec`. The wrapper retains the caller's working
+  From the Sapiens4 root, run `ruby submodules/libs4/ruby/bundle.rb install`, then
+  `ruby submodules/libs4/ruby/bundle.rb exec rspec`. The wrapper retains the caller's working
   directory and installs gems in `ruby/.gems/` here.
 - `python/*-requirements.txt`: remote client and relay requirements, also used by tests. Create a virtual environment in `python/.venv/` and install the
   relevant requirements with that interpreter. The Ruby wrapper uses this

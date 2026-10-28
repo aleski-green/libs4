@@ -16,58 +16,58 @@ common runtime
     build-depends: unix
 
 executable sapiens-domain
-  main-is: Work/Schedule/Main.hs
-  hs-source-dirs: ../../sapiens
-  other-modules: Work.Schedule.Command, Work.Schedule.Wire
+  main-is: Main.hs
+  hs-source-dirs: ../../../corpora/work/schedule
+  other-modules: Command, Wire
   build-depends: base >=4.18 && <5, aeson ==2.3.2.0, bytestring
   default-language: Haskell2010
   ghc-options: -O2 -Wall -Werror
 
 executable sapiens4
   import: runtime
-  hs-source-dirs: ../../sapiens, ../../web/shell
+  hs-source-dirs: ../../../corpora, ../../../corpora/state, ../../../corpora/work, ../../../corpora/work/schedule, ../../../corpora/host, ../../../remote/relay, ../../../remote/control, ../../../remote/protocol, ../../../build
   other-modules:
-    Work.Schedule.Command,
-    State.Domain,
-    Host.Assets,
+    Command,
+    Domain,
+    Assets,
     BuildUI,
-    Work.Computer,
-    Work.Delegation,
-    Work.Execution,
-    Work.GroupChat,
-    State.GroupModel,
-    Work.GroupWork,
-    Work.Groups,
-    Host.HTTP,
-    Host.Management,
-    State.Memo,
-    State.Population,
-    Work.Provider,
-    Host.Remote.Bridge,
-    Host.Remote.Client,
-    Host.Remote.Crypto,
-    Host.Remote.Mailboxes,
-    Host.Remote.Registry,
-    Host.Remote.Receipt,
-    Host.Remote.Relay,
-    Host.Remote.Setup,
-    Host.Remote.Transport,
-    Work.Routines,
-    Host.Server,
-    Host.Service,
-    State.Store,
-    State.Types,
-    State.Workspace,
-    Work.Schedule.Wire
+    Computer,
+    Delegation,
+    Execution,
+    GroupChat,
+    GroupModel,
+    GroupWork,
+    Groups,
+    HTTP,
+    Management,
+    Memo,
+    Population,
+    Provider,
+    Bridge,
+    Client,
+    Crypto,
+    Mailboxes,
+    Registry,
+    Receipt,
+    Server,
+    Setup,
+    Transport,
+    Routines,
+    HostServer,
+    Service,
+    Store,
+    Types,
+    Workspace,
+    Wire
   main-is: Main.hs
   extra-lib-dirs: sodium/src/libsodium/.libs
   extra-libraries: sodium
 
 executable sapiens-macos
   import: runtime
-  hs-source-dirs: ../../osspecific/macos, ../../sapiens
+  hs-source-dirs: ../../../environments/macos, ../../../corpora/state
   other-modules:
-    State.Domain,
+    Domain,
     Application,
     Browser,
     Icon,
@@ -82,9 +82,9 @@ executable sapiens-macos
 
 executable sapiens-windows
   import: runtime
-  hs-source-dirs: ../../osspecific/windows, ../../sapiens
+  hs-source-dirs: ../../../environments/windows, ../../../corpora/state
   other-modules:
-    State.Domain,
+    Domain,
     Browser,
     Host,
     Native,
@@ -101,9 +101,9 @@ executable sapiens-windows
 
 executable sapiens-windows-probe
   import: runtime
-  hs-source-dirs: ../../spec/support, ../../osspecific/windows, ../../sapiens
+  hs-source-dirs: ../../../spec/support, ../../../environments/windows, ../../../corpora/state
   other-modules:
-    State.Domain,
+    Domain,
     Browser,
     Host,
     Native,
@@ -118,7 +118,7 @@ executable sapiens-windows-probe
 
 executable sapiens-provider
   main-is: WindowsProviderMain.hs
-  hs-source-dirs: ../../spec/support
+  hs-source-dirs: ../../../spec/support
   default-language: Haskell2010
   build-depends: base >=4.18 && <5, process
   if !os(windows)
@@ -126,7 +126,7 @@ executable sapiens-provider
 
 executable sapiens-peer
   main-is: Peer.hs
-  hs-source-dirs: ../../spec/support
+  hs-source-dirs: ../../../spec/support
   default-language: Haskell2010
   ghc-options: -threaded -O1 -Wall
   build-depends: base >=4.18 && <5, aeson, async, base64-bytestring, bytestring,
