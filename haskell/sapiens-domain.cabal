@@ -14,7 +14,7 @@ common runtime
   ghc-options: -threaded -rtsopts -O1 -Wall -Werror=incomplete-patterns -Werror=incomplete-uni-patterns -Werror=missing-fields
   build-depends: base >=4.18 && <5, aeson ==2.3.2.0, bytestring, text, containers,
     directory, filepath, process, time, async, stm, scientific, vector,
-    sqlite-simple, filelock, uuid, base64-bytestring, network-uri, regex-tdfa,
+    sqlite-simple, filelock, uuid, base64-bytestring, network-uri,
     http-client, http-client-tls, http-types, network, wai, warp, wai-websockets,
     websockets, wuss, cryptohash-sha256, random, tagsoup ==0.14.8
   if !os(windows)
@@ -33,6 +33,7 @@ common host
   other-modules:
     Command,
     Domain,
+    RuntimePaths,
     Assets,
     BuildUI,
     Computer,
@@ -87,6 +88,7 @@ executable sapiens-macos
   hs-source-dirs: ../../../environments/macos, ../../../corpora/state
   other-modules:
     Domain,
+    RuntimePaths,
     Application,
     Browser,
     Icon,
@@ -104,6 +106,7 @@ executable sapiens-windows
   hs-source-dirs: ../../../environments/windows, ../../../corpora/state
   other-modules:
     Domain,
+    RuntimePaths,
     Browser,
     Host,
     Native,
@@ -123,6 +126,7 @@ executable sapiens-windows-probe
   hs-source-dirs: ../../../spec/support, ../../../environments/windows, ../../../corpora/state
   other-modules:
     Domain,
+    RuntimePaths,
     Browser,
     Host,
     Native,
