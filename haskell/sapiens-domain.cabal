@@ -33,6 +33,8 @@ common host
   other-modules:
     Command,
     Domain,
+    RuntimePaths,
+    DataRoot,
     Assets,
     BuildUI,
     Computer,
@@ -47,6 +49,7 @@ common host
     Memo,
     Population,
     Provider,
+    Onboarding,
     Bridge,
     Client,
     Crypto,
@@ -87,6 +90,8 @@ executable sapiens-macos
   hs-source-dirs: ../../../environments/macos, ../../../corpora/state
   other-modules:
     Domain,
+    RuntimePaths,
+    DataRoot,
     Application,
     Browser,
     Icon,
@@ -104,6 +109,8 @@ executable sapiens-windows
   hs-source-dirs: ../../../environments/windows, ../../../corpora/state
   other-modules:
     Domain,
+    RuntimePaths,
+    DataRoot,
     Browser,
     Host,
     Native,
@@ -123,6 +130,8 @@ executable sapiens-windows-probe
   hs-source-dirs: ../../../spec/support, ../../../environments/windows, ../../../corpora/state
   other-modules:
     Domain,
+    RuntimePaths,
+    DataRoot,
     Browser,
     Host,
     Native,
