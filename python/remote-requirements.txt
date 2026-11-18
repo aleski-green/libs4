@@ -1,3 +1,0 @@
-# Optional remote access for desktop clients and the relay.
--r remote-client-requirements.txt
--r relay-requirements.txt
