@@ -12,3 +12,6 @@ dotnet/.cli/
 haskell/.runtime/
 
 haskell/sodium/
+
+.spago/
+output/

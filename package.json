@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "description": "Pinned browser, test, and build dependencies for Sapiens4",
-  "scripts": {
-    "build": "node build.cjs"
-  },
   "dependencies": {
     "jsqr": "1.4.0",
     "qrcode": "1.5.4",
