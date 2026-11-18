@@ -6,6 +6,7 @@ haskell/.build/
 haskell/.runtime/
 
 haskell/sodium/
+haskell/libsodium-*/
 
 .spago/
 output/
